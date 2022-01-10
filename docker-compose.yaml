@@ -1,0 +1,27 @@
+version: '3'
+services:
+
+  app:
+    container_name: app_local
+    build: api/
+    command: python3 -m http.server 8000
+    volumes:
+      - ./src/:/app
+    links:
+      - mongodb
+    depends_on:
+      - mongodb
+    tty: true
+    ports:
+      - "8000:8000"
+
+  mongodb:
+    container_name: monog_local
+    hostname: db
+    build: mongo/
+    volumes:
+      - ./mongo/data:/data/db
+      - ./mongo/shared:/data/shared
+    tty: true
+    ports:
+      - "5432:5432"
