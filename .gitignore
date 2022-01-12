@@ -85,7 +85,9 @@ local_settings.py
 
 ### Docker values
 mongo/data/*
-mongo/shraed/*
+mongo/shared/*
+api/shared/*
 
 !mongo/data/.gitkeep
 !mongo/shared/.gitkeep
+!api/shared/.gitkeep
