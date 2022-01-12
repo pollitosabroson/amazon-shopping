@@ -1,0 +1,3 @@
+class AmzManager:
+
+    MODEL = "amz"
