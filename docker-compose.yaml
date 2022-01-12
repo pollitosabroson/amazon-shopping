@@ -2,9 +2,9 @@ version: '3'
 services:
 
   app:
-    container_name: app_local
+    container_name: app_graph
     build: api/
-    command: python3 -m http.server 8000
+    command: flask run
     volumes:
       - ./src/:/app
     links:
@@ -13,15 +13,17 @@ services:
       - mongodb
     tty: true
     ports:
-      - "8000:8000"
+      - "5000:5000"
+    env_file:
+      - ./api/.envs
 
   mongodb:
-    container_name: monog_local
+    container_name: mongo_db
     hostname: db
     build: mongo/
     volumes:
       - ./mongo/data:/data/db
       - ./mongo/shared:/data/shared
     tty: true
-    ports:
-      - "5432:5432"
+    environment:
+      - MONGO_INITDB_DATABASE=amz_db
