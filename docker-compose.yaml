@@ -4,9 +4,10 @@ services:
   app:
     container_name: app_graph
     build: api/
-    command: flask run
+    command: flask run -h "0.0.0.0" -p 5000 --debugger
     volumes:
       - ./src/:/app
+      - ./api/shared:/app/shared
     links:
       - mongodb
     depends_on:
