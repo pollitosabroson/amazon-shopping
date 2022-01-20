@@ -1,0 +1,45 @@
+schema {
+    query: Query
+}
+
+type Order {
+    _id: String
+    website: String
+    order_id: String
+    order_date: String
+    purchase_order_number: String
+    currency: String
+    unit_price:Int
+    unit_price_tax: Int
+    shipping_charge:Int
+    total_discounts:Int
+    total_owed: Int
+    shipment_item_subtotal:Int
+    shipment_item_subtotal_tax: Int
+    asin: String
+    product_condition: String
+    quantity:Int
+    payment_instrument_type: String
+    order_status: String
+    shipment_status: String
+    ship_date: String
+    shipping_option: String
+    shipping_address: String
+    billing_address: String
+    carrier_name_tracking_number: String
+    product_name: String
+    gift_message: String
+    gift_sender_name: String
+    gift_recipient_contact_details: String
+}
+
+type OrdersResult {
+    success: Boolean
+    orders: [Order]
+    errors: [String]
+    total: Int
+}
+
+type Query {
+    Orders: OrdersResult
+}
