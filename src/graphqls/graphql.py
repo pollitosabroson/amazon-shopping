@@ -1,10 +1,11 @@
 import os
 
-from amz_orders.resolvers import resolve_single_order
 from ariadne import (
     ObjectType, load_schema_from_path, make_executable_schema,
     snake_case_fallback_resolvers
 )
+
+from amz_orders.resolvers import resolve_single_order
 
 PATH = os.path.dirname(os.path.abspath(__file__))
 query = ObjectType("Query")

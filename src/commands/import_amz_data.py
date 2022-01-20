@@ -2,8 +2,9 @@ import csv
 import logging
 
 from flask import Blueprint
-from manager.amz_manager import AmzManager
 from slugify import slugify
+
+from manager.amz_manager import AmzManager
 
 # Create a custom logger
 logger = logging.getLogger(__name__)
