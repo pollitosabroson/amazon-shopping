@@ -9,11 +9,11 @@ type Order {
     order_date: String
     purchase_order_number: String
     currency: String
-    unit_price:Int
-    unit_price_tax: Int
-    shipping_charge:Int
-    total_discounts:Int
-    total_owed: Int
+    unit_price: Float
+    unit_price_tax: Float
+    shipping_charge: Float
+    total_discounts: Float
+    total_owed: Float
     shipment_item_subtotal:Int
     shipment_item_subtotal_tax: Int
     asin: String
@@ -33,13 +33,24 @@ type Order {
     gift_recipient_contact_details: String
 }
 
-type OrdersResult {
-    success: Boolean
+input OrderWhereInput {
+    _id: ID!
+}
+
+type OrdersResults {
+    success: Boolean!
     orders: [Order]
     errors: [String]
     total: Int
 }
 
+type OrderResult {
+    success: Boolean!
+    order: Order
+    errors: [String]
+}
+
 type Query {
-    Orders: OrdersResult
+    Orders: OrdersResults
+    Order(where: OrderWhereInput!): OrderResult
 }
