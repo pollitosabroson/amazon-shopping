@@ -4,7 +4,7 @@ services:
   app:
     container_name: app_graph
     build: api/
-    command: flask run -h "0.0.0.0" -p 5000 --debugger
+    command: flask run -h "0.0.0.0" -p 5000 --debugger --reload
     volumes:
       - ./src/:/app
       - ./api/shared:/app/shared
