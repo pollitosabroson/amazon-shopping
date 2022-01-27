@@ -37,11 +37,18 @@ input OrderWhereInput {
     _id: ID!
 }
 
+input OrdersWhereInput {
+    website: String
+    order_id: String
+    order_status: String
+    q: String
+}
+
 type OrdersResults {
     success: Boolean!
     orders: [Order]
     errors: [String]
-    total: Int
+    total: Float
 }
 
 type OrderResult {
@@ -51,6 +58,6 @@ type OrderResult {
 }
 
 type Query {
-    Orders: OrdersResults
+    Orders(where: OrdersWhereInput): OrdersResults
     Order(where: OrderWhereInput!): OrderResult
 }
