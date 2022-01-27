@@ -102,3 +102,15 @@ class AmzManager:
             raise str(error)
 
         return value
+
+    @staticmethod
+    def convert_params_search(text: str):
+        """Convert text for search text]
+        params:
+            text(str): Text to filter
+        """
+        return {
+            "$text": {
+                "$search": text
+            }
+        }
